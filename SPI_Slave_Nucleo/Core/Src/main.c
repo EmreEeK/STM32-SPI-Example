@@ -94,14 +94,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_SYSTICK_Config(SystemCoreClock / 1000);
   HAL_SPI_Receive_IT(&hspi1, received_data, sizeof(received_data));
-/*
+	
+	
+/* PIN DEFINITIONS
 #define in_0_Pin GPIO_PIN_2
 #define in_0_GPIO_Port GPIOA
 #define in_1_Pin GPIO_PIN_4
 #define in_1_GPIO_Port GPIOA
 */
-
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -110,13 +110,6 @@ int main(void)
   uint8_t state;
   while (1)
   {
-    /* USER CODE END WHILE */
-	  //HAL_SPI_Receive(&hspi1, received_data, sizeof(received_data), 100);
-
-
-	  //HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
-	  //HAL_Delay(5000);
-
 	  if(HAL_GPIO_ReadPin(GPIOA, in_1_Pin) == 0 && HAL_GPIO_ReadPin(GPIOA, in_0_Pin) == 0){
 		  state = 0;
 	  }
@@ -180,15 +173,7 @@ int main(void)
 	    	  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
 	        break;
 	    }
-
-/*
-	  if(received_data[0] == 10){
-
-		  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-		  HAL_Delay(100);
-	  }
-
-*/
+    /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
