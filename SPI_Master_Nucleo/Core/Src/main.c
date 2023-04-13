@@ -88,27 +88,17 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_SYSTICK_Config(SystemCoreClock / 1000); //HAL_SYSTICK_Config(SystemCoreClock /  1000);
-
-
+  HAL_SYSTICK_Config(SystemCoreClock / 1000); 
   /* USER CODE END 2 */
-  HAL_GPIO_WritePin(GPIOB, out_0_Pin, GPIO_PIN_SET);
+
+	
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
-  char first_time =1; /// first time char
-  char first_block_waiting =0;
   uint32_t hold_tick=0;
-
-
   uint8_t block_counter=0;
-
-  char first_pass =0;
- // HAL_Delay(5000);
   while (1)
   {
     /* USER CODE END WHILE */
-	  //transmit_val[0] = 10;
 	  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	  if(block_counter == 0 && abs((HAL_GetTick()-hold_tick >=5000))){
 		  transmit_val[0] = 11;
